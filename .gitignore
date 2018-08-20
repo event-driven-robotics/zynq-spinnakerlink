@@ -5,6 +5,6 @@
 mug
 
 # ignore Vivado subfolders
-Vivado/*
+fpga/*
 # but NOT xpr file
-!Vivado/*.xpr
+!fpga/*.xpr

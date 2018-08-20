@@ -1,2 +1,0 @@
-Designer Francesco Diotalevi
-Project Spinnaker: Porting of ZedBoard FPGA code developed by G. De Robertis 

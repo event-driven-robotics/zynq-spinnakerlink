@@ -8,3 +8,5 @@ mug
 fpga/*
 # but NOT xpr file
 !fpga/*.xpr
+# and NOT local sousces
+!fpga.srcs

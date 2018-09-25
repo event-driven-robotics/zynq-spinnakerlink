@@ -19,31 +19,42 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-module hssaer_paer_tx #( parameter dsize=8) ( output tx, dst_rdy, run, last, input[dsize-1:0] ae, input src_rdy, keepalive, clkp, clkn, _rst);
+module hssaer_paer_tx #( parameter dsize=8) ( output tx, output dst_rdy, output run, last, input[dsize-1:0] ae, input src_rdy, keepalive, clkp, clkn, _rst);
 
 	reg s;
 	reg[dsize-1:0] d;
 	wire first;
 	reg firsto;
-	assign dst_rdy = ~s;
+	reg runo;
+	//assign dst_rdy = ~s;
+	reg rdy;
 
 	always @( posedge clkp, negedge _rst) begin
 		if( !_rst) begin
 			s <= 0;
 			d <= 0;
+			rdy <= 1;
 			firsto <= 0;
+			runo <= 0;
 		end
 		else begin
 			firsto <= first;
+			runo <= run;
 			if( s) begin
 				s <= ~first && firsto;
 			end
 			else begin
-				s <= src_rdy;
-				d <= ae;
+				if( dst_rdy) begin
+					s <= src_rdy;
+					d <= ae;
+				end
 			end
+			rdy <= rdy? ~src_rdy: ~run &runo;
+			//dst_rdy <= dst_rdy? ~src_rdy: last;
 		end
 	end
+
+	assign dst_rdy = rdy;// | (~run &runo);
 
 	hssaer_tx #( .dsize(dsize)) tx_impl( .tx(tx), .run(run), .first(first), .last(last), .d(d), .st(s), .keepalive(keepalive), .clkp(clkp), .clkn(clkn), ._rst(_rst));
 
@@ -79,4 +90,4 @@ module hssaer_paer_rx #( parameter dsize=8) ( output reg[dsize-1:0] ae, output r
 
 endmodule
 
-// vim: ai ts=4:
+// vim: ai ts=4 sw=4:

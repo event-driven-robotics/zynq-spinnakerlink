@@ -106,6 +106,7 @@ TxPaerEn_o                     : out std_logic;
 TxHSSaerEn_o                   : out std_logic;
 TxGtpEn_o                      : out std_logic;
 TxSpnnLnkEn_o                  : out std_logic;
+TxDestSwitch_o                 : out std_logic_vector(2 downto 0);
 --TxPaerIgnoreFifoFull_o         : out std_logic;
 TxPaerReqActLevel_o            : out std_logic;
 TxPaerAckActLevel_o            : out std_logic;
@@ -192,9 +193,9 @@ end entity neuserial_axilite;
 
 architecture rtl of neuserial_axilite is
 
-    constant cVer   : string(3 downto 1) := "HPU";
-    constant cMAJOR : std_logic_vector(3 downto 0) :="0010";
-    constant cMINOR : std_logic_vector(3 downto 0) :="0010";
+    constant cVer   : string(3 downto 1) := "B01";
+    constant cMAJOR : std_logic_vector(3 downto 0) :="0011";
+    constant cMINOR : std_logic_vector(3 downto 0) :="0000";
 
     constant c_zero_vect : std_logic_vector(31 downto 0) := (others => '0');
 
@@ -391,6 +392,8 @@ architecture rtl of neuserial_axilite is
     signal  i_TxGtpEn       : std_logic;
     signal  i_TxPaerEn      : std_logic;
     signal  i_TxHSSaerEn    : std_logic;
+    
+    signal  i_TxDestSwitch  : std_logic_vector(2 downto 0);
 
 
     signal  i_TxPaerAckActLevel    : std_logic;
@@ -1469,6 +1472,7 @@ begin
     -- TX_CTRL_reg - R/W
 
     i_TxSaerChanEn  <= i_TX_CTRL_reg(11 downto  8)   when C_TX_HAS_HSSAER  else (others => '0');
+    i_TxDestSwitch  <= i_TX_CTRL_reg(6 downto 4)     when (C_TX_HAS_HSSAER or C_TX_HAS_SPNNLNK or C_TX_HAS_GTP or C_TX_HAS_PAER) else "000";
     i_TxSpnnLnkEn   <= i_TX_CTRL_reg(3)              when C_TX_HAS_SPNNLNK else '0';
     i_TxGtpEn       <= i_TX_CTRL_reg(2)              when C_TX_HAS_GTP     else '0';
     i_TxPaerEn      <= i_TX_CTRL_reg(1)              when C_TX_HAS_PAER    else '0';
@@ -1476,13 +1480,15 @@ begin
 
     i_TX_CTRL_rd <= c_zero_vect(31 downto 12) &
                     i_TxSaerChanEn            &
-                    c_zero_vect( 7 downto  4) &
+                    c_zero_vect(7)            &
+                    i_TxDestSwitch            &
                     i_TxSpnnLnkEn             &
                     i_TxGtpEn                 &
                     i_TxPaerEn                &
                     i_TxHSSaerEn              ;
 
     TxSaerChanEn_o <= i_TxSaerChanEn(C_TX_HSSAER_N_CHAN-1 downto 0);
+    TxDestSwitch_o <= i_TxDestSwitch;
     TxSpnnLnkEn_o  <= i_TxSpnnLnkEn;
     TxGtpEn_o      <= i_TxGtpEn;
     TxPaerEn_o     <= i_TxPaerEn;

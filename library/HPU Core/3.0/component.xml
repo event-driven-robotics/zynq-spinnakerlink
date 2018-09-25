@@ -3677,6 +3677,7 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>misc/iit-logo-icub.png</spirit:name>
+        <spirit:userFileType>image</spirit:userFileType>
         <spirit:userFileType>LOGO</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -3921,19 +3922,19 @@
       </xilinx:xpmLibraries>
       <xilinx:vendorDisplayName>Istituto Italiano di Tecnologia</xilinx:vendorDisplayName>
       <xilinx:vendorURL>http://www.iit.it</xilinx:vendorURL>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2018-08-17T09:23:29Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>3</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2018-09-24T12:39:54Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="iit.local:user:HPUCore:1.0_ARCHIVE_LOCATION">d:/Projects/Repository/HPUCore_3.0</xilinx:tag>
         <xilinx:tag xilinx:name="IIT:user:HPUCore:1.0_ARCHIVE_LOCATION">d:/Projects/Repository/HPUCore_3.0</xilinx:tag>
         <xilinx:tag xilinx:name="IIT:user:HPUCore:3.0_ARCHIVE_LOCATION">d:/Projects/Repository/HPU_Core/__IP_Export__/Vivado</xilinx:tag>
         <xilinx:tag xilinx:name="IIT:IIT_lib:HPUCore:3.0_ARCHIVE_LOCATION">d:/Projects/Repository/HPU_Core/__IP_Export__/Vivado</xilinx:tag>
         <xilinx:tag xilinx:name="IIT:IIT_lib:HPU Core:3.0_ARCHIVE_LOCATION">d:/Projects/Repository/HPU_Core/__IP_Export__/Vivado</xilinx:tag>
-        <xilinx:tag xilinx:name="IIT:IIT_lib:HPU_Core:3.0_ARCHIVE_LOCATION">d:/Projects/Repository/HPU_Core/__IP_Export__/Xilinx/Latest</xilinx:tag>
+        <xilinx:tag xilinx:name="IIT:IIT_lib:HPU_Core:3.0_ARCHIVE_LOCATION">c:/Progetti/Repository/HPU_Core/__IP_Export__/Xilinx/Latest</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2017.4.1</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2017.4</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="84870c4e"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="871a59ce"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="bfb99e2c"/>

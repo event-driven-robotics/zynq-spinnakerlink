@@ -167,6 +167,7 @@ entity neuserial_core is
         TxHSSaerEn_i            : in  std_logic;
         TxGtpEn_i               : in  std_logic;
         TxSpnnLnkEn_i           : in  std_logic;
+        TxDestSwitch_i          : in  std_logic_vector(2 downto 0);
         --TxPaerIgnoreFifoFull_i  : in  std_logic;
         TxPaerReqActLevel_i     : in  std_logic;
         TxPaerAckActLevel_i     : in  std_logic;
@@ -570,6 +571,7 @@ begin
             EnableHSSAER_i       => TxHSSaerEn_i,                -- in  std_logic;
             EnableGTP_i          => TxGtpEn_i,                   -- in  std_logic;
             EnableSPNNLNK_i      => TxSpnnLnkEn_i,
+            DestinationSwitch_i  => TxDestSwitch_i,              -- in  std_logic_vector(2 downto 0);
             -- PAER
             --PaerIgnoreFifoFull_i => TxPaerIgnoreFifoFull_i,      -- in  std_logic;
             PaerReqActLevel_i    => '1',                         -- in  std_logic;

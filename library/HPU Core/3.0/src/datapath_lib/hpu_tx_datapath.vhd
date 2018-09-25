@@ -62,6 +62,7 @@ entity hpu_tx_datapath is
         EnableHSSAER_i          : in  std_logic;
         EnableGTP_i             : in  std_logic;
         EnableSPNNLNK_i         : in  std_logic;
+        DestinationSwitch_i     : in  std_logic_vector(2 downto 0);
         -- PAER
         --PaerIgnoreFifoFull_i    : in  std_logic;
         PaerReqActLevel_i       : in  std_logic;
@@ -144,13 +145,13 @@ begin
 	Rst <= not nRst;
 	
     -- Route the Sequencer packet to one of the destination paths according
-    -- to the MSBits in Data:
+    -- to the Destination Switch (TX_CTRL_REG[6:4]) or MSBits in Data:
     --     00 => the packet is sent to the parallel AER interface
     --     01 => the packet is sent to the HSSAER interface
     --     10 => the packet is sent to the SpiNNlink interface ------------ it was: GTP driver interface
     --     11 => the packet is sent to all the interfaces: it is acknowledged
     --           only when all the interfaces have acknowledged the transfer
-    i_selDest <= FromSeqDataIn_i(C_INPUT_DSIZE-1 downto C_INPUT_DSIZE-2);
+    i_selDest <= DestinationSwitch_i(1 downto 0) when (DestinationSwitch_i(2) = '1') else FromSeqDataIn_i(C_INPUT_DSIZE-1 downto C_INPUT_DSIZE-2);
 
     i_paer_SrcRdy    <= FromSeqSrcRdy_i when (i_selDest = "00") else 
                         i_vectSrcRdy(0) when (i_selDest = "11") else

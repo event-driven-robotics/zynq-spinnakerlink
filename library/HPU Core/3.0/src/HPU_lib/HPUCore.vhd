@@ -72,26 +72,27 @@ entity HPUCore is
     generic (
         -- ADD USER GENERICS BELOW THIS LINE ---------------
 
-        C_PAER_DSIZE               : natural range 1 to 29   := 24;
-        C_RX_HAS_PAER              : boolean                 := true;
-        C_RX_HAS_HSSAER            : boolean                 := true;
-        C_RX_HSSAER_N_CHAN         : natural range 1 to 4    := 3;
-        C_RX_HAS_GTP               : boolean                 := true;
-        C_RX_HAS_SPNNLNK           : boolean                 := true;
-        C_TX_HAS_PAER              : boolean                 := true;
-        C_TX_HAS_HSSAER            : boolean                 := true;
-        C_TX_HSSAER_N_CHAN         : natural range 1 to 4    := 2;
-        C_TX_HAS_GTP               : boolean                 := true;
-        C_TX_HAS_SPNNLNK           : boolean                 := true;
-        C_PSPNNLNK_WIDTH		   : natural range 1 to 32   := 32;
-        C_DEBUG                    : boolean                 := false;
+
+        C_RX_HAS_PAER              : boolean                 := true;           -- PAER RX Interface:	          if true the RX PAER interface is exposed
+        C_TX_HAS_PAER              : boolean                 := true;           -- PAER TX Interface:	          if true the TX PAER interface is exposed
+        C_PAER_DSIZE               : natural range 1 to 29   := 24;             -- PAER Data Width:	              size of PAER address
+        C_RX_HAS_HSSAER            : boolean                 := true;           -- HSSAER RX Interface:	          if true the RX HSSAER interface is exposed
+        C_RX_HSSAER_N_CHAN         : natural range 1 to 4    := 3;              -- HSSAER RX Channels:	          the number of RX HSSAER channels
+        C_TX_HAS_HSSAER            : boolean                 := true;           -- HSSAER TX Interface:	          if true the TX HSSAER interface is exposed
+        C_TX_HSSAER_N_CHAN         : natural range 1 to 4    := 3;              -- HSSAER TX Channels:	          the number of TX HSSAER channels
+        C_RX_HAS_GTP               : boolean                 := true;           -- GTP RX Interface:              if true the RX GTP interface is exposed
+        C_TX_HAS_GTP               : boolean                 := false;          -- GTP TX Interface:	          if true the TX GTP interface is exposed
+        C_RX_HAS_SPNNLNK           : boolean                 := true;           -- SpiNNlink RX Interface:        if true the RX SpiNNlink interface is exposed  
+        C_TX_HAS_SPNNLNK           : boolean                 := true;           -- SpiNNlink TX Interface:	      if true the TX SpiNNlink interface is exposed
+        C_PSPNNLNK_WIDTH		   : natural range 1 to 32   := 32;             -- SpiNNaker Parallel Data Width: size of SpiNNaker parallel data interface
+        C_DEBUG                    : boolean                 := false;          -- Debug Ports:                   if true the debug ports are exposed
 		
         -- ADD USER GENERICS ABOVE THIS LINE ---------------
 
         -- DO NOT EDIT BELOW THIS LINE ---------------------
         -- Bus protocol parameters, do not add to or delete
-        C_S_AXI_DATA_WIDTH             : integer              := 32;
-        C_S_AXI_ADDR_WIDTH             : integer              := 7;
+        C_S_AXI_ADDR_WIDTH             : integer              := 7;             -- AXI4 Lite Slave Address width: size of AXI4 Lite Address bus
+        C_S_AXI_DATA_WIDTH             : integer              := 32;            -- AXI4 Lite Slave Data width:    size of AXI4 Lite Data bus
         C_S_AXI_MIN_SIZE               : std_logic_vector     := X"000001FF";
         C_USE_WSTRB                    : integer              := 1;
         C_DPHASE_TIMEOUT               : integer              := 8;
@@ -380,6 +381,7 @@ architecture str of HPUCore is
     signal i_uP_TxHSSaerEn           : std_logic;
     signal i_up_TxGtpEn              : std_logic;
     signal i_up_TxSpnnLnkEn          : std_logic;
+    signal i_uP_TxDestSwitch         : std_logic_vector(2 downto 0);
     signal i_uP_TxPaerReqActLevel    : std_logic;
     signal i_uP_TxPaerAckActLevel    : std_logic;
     signal i_uP_TxSaerChanEn         : std_logic_vector(C_TX_HSSAER_N_CHAN-1 downto 0);
@@ -548,6 +550,7 @@ begin
                                TxHSSaerEn_o                   => i_uP_TxHSSaerEn,              -- out std_logic;
                                TxGtpEn_o                      => i_up_TxGtpEn,                 -- out std_logic;
                                TxSpnnLnkEn_o                  => i_uP_TxSpnnLnkEn,             -- out std_logic;
+                               TxDestSwitch_o                 => i_uP_TxDestSwitch,            -- out std_logic_vector(2 downto 0);
                                --TxPaerIgnoreFifoFull_o         => ,                             -- out std_logic;
                                TxPaerReqActLevel_o            => i_uP_TxPaerReqActLevel,       -- out std_logic;
                                TxPaerAckActLevel_o            => i_uP_TxPaerAckActLevel,       -- out std_logic;
@@ -831,6 +834,7 @@ begin
             TxHSSaerEn_i            => i_uP_TxHSSaerEn,              -- in  std_logic;
             TxGtpEn_i               => i_up_TxGtpEn,                 -- in  std_logic;
             TxSpnnLnkEn_i           => i_up_TxSpnnLnkEn,             -- in  std_logic;
+            TxDestSwitch_i          => i_uP_TxDestSwitch,            -- in  std_logic_vector(2 downto 0);
             --TxPaerIgnoreFifoFull_i  => ,                             -- in  std_logic;
             TxPaerReqActLevel_i     => i_uP_TxPaerReqActLevel,       -- in  std_logic;
             TxPaerAckActLevel_i     => i_uP_TxPaerAckActLevel,       -- in  std_logic;

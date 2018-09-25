@@ -158,6 +158,7 @@ package HPUComponents_pkg is
             TxHSSaerEn_i            : in  std_logic;
             TxGtpEn_i               : in  std_logic;
             TxSpnnLnkEn_i           : in  std_logic;
+            TxDestSwitch_i          : in  std_logic_vector(2 downto 0);
             --TxPaerIgnoreFifoFull_i  : in  std_logic;
             TxPaerReqActLevel_i     : in  std_logic;
             TxPaerAckActLevel_i     : in  std_logic;
@@ -334,6 +335,7 @@ port (
     TxHSSaerEn_o                   : out std_logic;
     TxGtpEn_o                      : out std_logic;
     TxSpnnLnkEn_o                  : out std_logic;
+    TxDestSwitch_o                 : out std_logic_vector(2 downto 0);
     --TxPaerIgnoreFifoFull_o         : out std_logic;
     TxPaerReqActLevel_o            : out std_logic;
     TxPaerAckActLevel_o            : out std_logic;

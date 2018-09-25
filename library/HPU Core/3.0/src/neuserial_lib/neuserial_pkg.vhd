@@ -173,6 +173,7 @@ package NSComponents_pkg is
         EnableHSSAER_i          : in  std_logic;
         EnableGTP_i             : in  std_logic;
         EnableSPNNLNK_i         : in  std_logic;
+        DestinationSwitch_i     : in  std_logic_vector(2 downto 0);
         -- PAER
         --PaerIgnoreFifoFull_i    : in  std_logic;
         PaerReqActLevel_i       : in  std_logic;

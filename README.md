@@ -1,1 +1,1 @@
-# SpiNNYarp
+# zynq-spinnakerlink

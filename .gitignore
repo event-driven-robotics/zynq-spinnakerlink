@@ -7,6 +7,12 @@ mug
 # ignore Vivado subfolders
 fpga/*
 # but NOT xpr file
-!fpga/*.xpr
-# and NOT local sousces
-!fpga.srcs
+!*.xpr
+# and NOT local sources
+!fpga/fpga.srcs/**/*.bd
+!fpga/fpga.srcs/**/*.bxml
+!fpga/fpga.srcs/**/hdl/*
+!fpga/fpga.srcs/**/ip/*.xci
+!fpga/fpga.srcs/**/ip/*.xml
+!fpga/fpga.srcs/*.ui
+

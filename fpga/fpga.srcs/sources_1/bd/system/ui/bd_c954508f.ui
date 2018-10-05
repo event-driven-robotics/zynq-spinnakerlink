@@ -50,7 +50,7 @@ preplace netloc processing_system7_0_axi_periph_M01_AXI 1 2 1 660
 preplace netloc HPU_Core_0_Interrupt_o 1 3 3 1070 640 NJ 640 2040
 preplace netloc HPU_Core_0_Tx_data_2of7_to_spinnaker_o 1 5 1 NJ
 preplace netloc xlslice_0_Dout 1 4 1 1440J
-levelinfo -pg 1 0 200 530 870 1240 1740 2070 -top 0 -bot 1160
+levelinfo -pg 1 0 200 530 870 1240 1740 2080 -top 0 -bot 1160
 ",
 }
 {

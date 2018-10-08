@@ -9,6 +9,8 @@
 ---- Author(s):                                                   ----
 ---- - Francesco Diotalevi, Istituto Italiano di Tecnologia       ----
 ---- - Gaetano de Robertis, Istituto Italiano di Tecnologia       ----
+---- Modifications by:                                            ----
+---- - Maurizio Casti, Istituto Italiano di Tecnologia            ----
 ----                                                              ----
 ----------------------------------------------------------------------
 
@@ -198,7 +200,7 @@ architecture rtl of neuserial_axilite is
 
     constant cVer   : string(3 downto 1) := "B01";
     constant cMAJOR : std_logic_vector(3 downto 0) :="0011";
-    constant cMINOR : std_logic_vector(3 downto 0) :="0000";
+    constant cMINOR : std_logic_vector(3 downto 0) :="0001";
 
     constant c_zero_vect : std_logic_vector(31 downto 0) := (others => '0');
 
@@ -1040,8 +1042,11 @@ begin
                            else
                               regDataOut  <= (others => '0');
                            end if;
+                           
+                when 32 => regDataOut  <= i_SPNN_START_KEY_rd;
+                when 33 => regDataOut  <= i_SPNN_STOP_KEY_rd;
 
-               when others  => regDataOut  <= (others => '0');
+               when others  => regDataOut  <= x"BAB0BAB0";
             end case;
         end if;
     end process p_read_mux;

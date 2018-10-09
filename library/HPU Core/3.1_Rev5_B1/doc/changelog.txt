@@ -1,0 +1,19 @@
+********************************************
+Version 3.1 Rev 5:  9th, October 2018
+- Added the Data Mask feature to SpiNNlink
+  (M. Casti - IIT)
+
+********************************************
+Version 3.1 Rev 4:  27th, August 2018
+- Added the START/STOP Feature to SpiNNlink
+  (M. Casti - IIT)
+
+********************************************
+Version 3.0:  9th, August 2018
+- Added SpiNNlink capabilities
+  (M. Casti - IIT)
+
+********************************************
+Version 2.2
+- Original HPU Core functions (AER/HSSAER interfaces)
+  (F. Diotalevi - IIT)

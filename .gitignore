@@ -11,4 +11,7 @@ fpga/*
 # and NOT local sources
 !fpga/fpga.srcs/**/*.bd
 
+# Ignore old files in boot folder
+boot/*_old*
+
 

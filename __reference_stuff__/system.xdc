@@ -48,6 +48,7 @@ set_property PACKAGE_PIN D22     [get_ports data_2of7_from_spinnaker[2]]
 set_property PACKAGE_PIN G19     [get_ports data_2of7_from_spinnaker[1]]
 set_property PACKAGE_PIN G20     [get_ports data_2of7_from_spinnaker[0]]
 set_property IOSTANDARD LVCMOS18 [get_ports [list data_2of7_from_spinnaker[*]]]
+set_property PULLDOWN TRUE       [get_ports [list data_2of7_from_spinnaker[*]]]
 
 set_property PACKAGE_PIN P20     [get_ports ack_to_spinnaker]
 set_property IOSTANDARD LVCMOS18 [get_ports ack_to_spinnaker]
@@ -63,6 +64,7 @@ set_property IOSTANDARD LVCMOS18 [get_ports [list data_2of7_to_spinnaker[*]]]
 
 set_property PACKAGE_PIN P18     [get_ports ack_from_spinnaker]
 set_property IOSTANDARD LVCMOS18 [get_ports ack_from_spinnaker]
+set_property PULLDOWN TRUE       [get_ports ack_from_spinnaker]
 
 
 #############################################################

@@ -576,7 +576,7 @@
       </spirit:componentInstance>
       <spirit:componentInstance>
         <spirit:instanceName>HPU_Core_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="IIT_lib" spirit:name="HPU_Core" spirit:vendor="IIT" spirit:version="3.2"/>
+        <spirit:componentRef spirit:library="IIT_lib" spirit:name="HPU_Core" spirit:vendor="IIT" spirit:version="3.3"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">system_HPU_Core_0_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_RX_HAS_PAER">false</spirit:configurableElementValue>

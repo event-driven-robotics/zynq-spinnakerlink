@@ -32,16 +32,16 @@ module spinn_receiver
   input                         enable,
 
   // status
-  output reg                    err,
+(* mark_debug = "true" *)   output reg                    err,
 
   // SpiNNaker link asynchronous interface
-  input                   [6:0] data_2of7,
-  output reg                    ack,
+(* mark_debug = "true" *)   input                   [6:0] data_2of7,
+(* mark_debug = "true" *)   output reg                    ack,
 
   // synchronous interface
-  output reg  [`PKT_BITS - 1:0] pkt_data,
-  output reg                    pkt_vld,
-  input                         pkt_rdy,
+(* mark_debug = "true" *)   output reg  [`PKT_BITS - 1:0] pkt_data,
+(* mark_debug = "true" *)   output reg                    pkt_vld,
+(* mark_debug = "true" *)   input                         pkt_rdy,
   
   output wire [2:0]             dbg_state
 );

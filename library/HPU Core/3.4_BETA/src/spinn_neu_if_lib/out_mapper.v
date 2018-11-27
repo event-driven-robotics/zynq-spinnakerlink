@@ -44,8 +44,8 @@ module out_mapper #
         // Command from SpiNNaker 
         input  wire [31:0]          cmd_start_key,
         input  wire [31:0]          cmd_stop_key, 
-        output reg                  cmd_start,
-        output reg                  cmd_stop,
+(* mark_debug = "true" *)         output reg                  cmd_start,
+(* mark_debug = "true" *)         output reg                  cmd_stop,
                         
         // Controls
         input  wire [31:0]          rx_data_mask,
@@ -126,7 +126,7 @@ module out_mapper #
     //---------------------------------------------------------------
     // Commands
     
-    wire cmd_vld, cmd_flag;   // Signals for command recongnition
+(* mark_debug = "true" *) wire cmd_vld, cmd_flag;   // Signals for command recongnition
     
 
 

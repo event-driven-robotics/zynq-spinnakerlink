@@ -35,13 +35,13 @@ module spinn_driver
   input                        rst,
 
   // synchronous packet interface
-  input      [`PKT_BITS - 1:0] pkt_data,
-  input                        pkt_vld,
-  output reg                   pkt_rdy,
+(* mark_debug = "true" *)           input      [`PKT_BITS - 1:0] pkt_data,
+(* mark_debug = "true" *)           input                        pkt_vld,
+(* mark_debug = "true" *)           output reg                   pkt_rdy,
 
   // SpiNNaker link asynchronous interface
-  output reg             [6:0] data_2of7,
-  input                        ack,
+(* mark_debug = "true" *)           output reg             [6:0] data_2of7,
+(* mark_debug = "true" *)           input                        ack,
 
   output wire [1:0]            dbg_state
 );
@@ -59,10 +59,10 @@ module spinn_driver
   //---------------------------------------------------------------
   // internal signals
   //---------------------------------------------------------------
-  reg  [STATE_BITS - 1:0] state;
-  reg                     eop;
+(* mark_debug = "true" *)           reg  [STATE_BITS - 1:0] state;
+(* mark_debug = "true" *)          reg                     eop;
 
-  reg                     old_ack;
+ (* mark_debug = "true" *)          reg                     old_ack;
 
   reg   [`PKT_BITS - 5:0] pkt_buf; // no need to store bottom 4 bits!
   reg                     long_pkt;

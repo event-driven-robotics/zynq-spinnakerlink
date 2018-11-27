@@ -206,6 +206,21 @@ architecture str of CoreMonSeqRR is
     -- end of declarations
     -----------------------------------------------------------------------------
 
+    attribute mark_debug : string;
+    attribute mark_debug of EnableSequencer_xS : signal is "true";
+    attribute mark_debug of TxTSTimeoutSel_xDI : signal is "true";
+    attribute mark_debug of TxTSMaskSel_xSI    : signal is "true";
+    attribute mark_debug of Timestamp_TX_xD    : signal is "true";
+    attribute mark_debug of LoadTimer_xS : signal is "true";
+    attribute mark_debug of LoadValue_xS : signal is "true";
+    attribute mark_debug of TxTSRetrigCmd_xSI : signal is "true";
+    attribute mark_debug of TxTSRearmCmd_xSI : signal is "true";
+    attribute mark_debug of TxTSRetrigStatus_xSO : signal is "true";
+    attribute mark_debug of TxTSTimeoutCounts_xSO : signal is "true";
+    
+
+    
+        
 begin
 
     -----------------------------------------------------------------------------

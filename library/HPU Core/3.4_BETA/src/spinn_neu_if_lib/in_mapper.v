@@ -23,11 +23,11 @@ module in_mapper #
         input  wire                 enable,
 
         // status interface
-        output reg         			dump_mode,
+(* mark_debug = "true" *)         output reg         			dump_mode,
         
         // Commands
-        input wire                  dump_on,
-        input wire                  dump_off,
+(* mark_debug = "true" *)         input wire                  dump_on,
+(* mark_debug = "true" *)         input wire                  dump_off,
         
         // Controls
         input  wire [31:0]          tx_data_mask,
@@ -58,7 +58,7 @@ module in_mapper #
     // dump after 128 cycles without SpiNNaker response
     //---------------------------------------------------------------
     reg              [7:0] spnnlnk_timeout_cnt;
-    reg                    spnnlnk_timeout;
+(* mark_debug = "true" *)     reg                    spnnlnk_timeout;
 
     always @(posedge clk or posedge rst) begin
         if (rst) begin
@@ -68,7 +68,7 @@ module in_mapper #
             spnnlnk_timeout <= 1'b0;
             if (ipkt_rdy) begin
                 spnnlnk_timeout_cnt <= 8'd128;  // spinn_driver ready resets counter
-            end else if (spnnlnk_timeout_cnt != 5'd0) begin
+            end else if (spnnlnk_timeout_cnt != 8'd0) begin
                 spnnlnk_timeout_cnt <= spnnlnk_timeout_cnt - 1;
             end else begin
                 spnnlnk_timeout_cnt <= spnnlnk_timeout_cnt;  // no change!
@@ -82,7 +82,7 @@ module in_mapper #
     // a "start" command allow to send data to SpiNNaker
     // a "stop" command stops sending data 
     //---------------------------------------------------------------
-    reg               cmd_dump;
+(* mark_debug = "true" *)     reg               cmd_dump;
 
     always @(posedge clk or posedge rst) begin
         if (rst) 

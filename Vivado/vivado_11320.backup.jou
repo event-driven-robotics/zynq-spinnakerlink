@@ -1,0 +1,40 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec 31 01:39:50 2020
+# Process ID: 11320
+# Current directory: C:/Progetti/zynq-spinnakerlink/Vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21328 C:\Progetti\zynq-spinnakerlink\Vivado\ZYNQ_SPNLNK.xpr
+# Log file: C:/Progetti/zynq-spinnakerlink/Vivado/vivado.log
+# Journal file: C:/Progetti/zynq-spinnakerlink/Vivado\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Progetti/zynq-spinnakerlink/Vivado/ZYNQ_SPNLNK.xpr
+update_compile_order -fileset sources_1
+open_bd_design {C:/Progetti/zynq-spinnakerlink/src/Vivado_bd/ETPS_Test_bd/ETPS_Test_bd.bd}
+save_bd_design_as ZYNQ_SPNLNK_bd -dir {C:/Progetti/ETPS/FPGA/ETPS_Test/src/Vivado_bd}
+add_files -norecurse C:/Progetti/ETPS/FPGA/ETPS_Test/src/Vivado_bd/ZYNQ_SPNLNK_bd/ZYNQ_SPNLNK_bd.bd
+export_ip_user_files -of_objects  [get_files  C:/Progetti/ETPS/FPGA/ETPS_Test/src/Vivado_bd/ZYNQ_SPNLNK_bd/ZYNQ_SPNLNK_bd.bd] -lib_map_path [list {modelsim=C:/Progetti/zynq-spinnakerlink/Vivado/ZYNQ_SPNLNK.cache/compile_simlib/modelsim} {questa=C:/Progetti/zynq-spinnakerlink/Vivado/ZYNQ_SPNLNK.cache/compile_simlib/questa} {riviera=C:/Progetti/zynq-spinnakerlink/Vivado/ZYNQ_SPNLNK.cache/compile_simlib/riviera} {activehdl=C:/Progetti/zynq-spinnakerlink/Vivado/ZYNQ_SPNLNK.cache/compile_simlib/activehdl}] -force -quiet
+open_bd_design {C:/Progetti/ETPS/FPGA/ETPS_Test/src/Vivado_bd/ZYNQ_SPNLNK_bd/ZYNQ_SPNLNK_bd.bd}
+update_compile_order -fileset sources_1
+add_files -norecurse C:/Progetti/zynq-spinnakerlink/src/hdl/ZYNQ_SPNLNK.vhd
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Progetti/zynq-spinnakerlink/src/hdl/ETPS_Test.vhd] -no_script -reset -force -quiet
+remove_files  C:/Progetti/zynq-spinnakerlink/src/hdl/ETPS_Test.vhd
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Progetti/zynq-spinnakerlink/src/Vivado_bd/ETPS_Test_bd/ETPS_Test_bd.bd] -no_script -reset -force -quiet
+remove_files  C:/Progetti/zynq-spinnakerlink/src/Vivado_bd/ETPS_Test_bd/ETPS_Test_bd.bd
+add_files -fileset constrs_1 -norecurse C:/Progetti/zynq-spinnakerlink/src/constrs/ZYNQ_SPNLNK.xdc
+export_ip_user_files -of_objects  [get_files C:/Progetti/zynq-spinnakerlink/src/constrs/ETPS_Test.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 C:/Progetti/zynq-spinnakerlink/src/constrs/ETPS_Test.xdc
+open_bd_design {C:/Progetti/ETPS/FPGA/ETPS_Test/src/Vivado_bd/ZYNQ_SPNLNK_bd/ZYNQ_SPNLNK_bd.bd}
+save_bd_design_as design_1 -dir {C:/Progetti/zynq-spinnakerlink/src/Vivado_bd}
+add_files -norecurse C:/Progetti/zynq-spinnakerlink/src/Vivado_bd/design_1/design_1.bd
+export_ip_user_files -of_objects  [get_files  C:/Progetti/zynq-spinnakerlink/src/Vivado_bd/design_1/design_1.bd] -lib_map_path [list {modelsim=C:/Progetti/zynq-spinnakerlink/Vivado/ZYNQ_SPNLNK.cache/compile_simlib/modelsim} {questa=C:/Progetti/zynq-spinnakerlink/Vivado/ZYNQ_SPNLNK.cache/compile_simlib/questa} {riviera=C:/Progetti/zynq-spinnakerlink/Vivado/ZYNQ_SPNLNK.cache/compile_simlib/riviera} {activehdl=C:/Progetti/zynq-spinnakerlink/Vivado/ZYNQ_SPNLNK.cache/compile_simlib/activehdl}] -force -quiet
+open_bd_design {C:/Progetti/zynq-spinnakerlink/src/Vivado_bd/design_1/design_1.bd}
+update_compile_order -fileset sources_1
+save_bd_design_as ZYNQ_SPNLNK_bd -dir {C:/Progetti/zynq-spinnakerlink/src/Vivado_bd}
+add_files -norecurse C:/Progetti/zynq-spinnakerlink/src/Vivado_bd/ZYNQ_SPNLNK_bd/ZYNQ_SPNLNK_bd.bd
+export_ip_user_files -of_objects  [get_files C:/Progetti/zynq-spinnakerlink/src/Vivado_bd/design_1/design_1.bd] -no_script -reset -force -quiet
+remove_files  C:/Progetti/zynq-spinnakerlink/src/Vivado_bd/design_1/design_1.bd

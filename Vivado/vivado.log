@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec 31 01:51:01 2020
+# Process ID: 11800
+# Current directory: C:/Progetti/zynq-spinnakerlink/Vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19004 C:\Progetti\zynq-spinnakerlink\Vivado\ZYNQ_SPNLNK.xpr
+# Log file: C:/Progetti/zynq-spinnakerlink/Vivado/vivado.log
+# Journal file: C:/Progetti/zynq-spinnakerlink/Vivado\vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script 'C:/Users/mcasti/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
+start_gui
+open_project C:/Progetti/zynq-spinnakerlink/Vivado/ZYNQ_SPNLNK.xpr
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory 'C:/Progetti/zynq-spinnakerlink/ZBOARD/library/HPU Core'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Progetti/zynq-spinnakerlink/ZBOARD/library/HPU Core'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+WARNING: [BD 41-1661] One or more IPs have been locked in the design 'ZYNQ_SPNLNK_bd.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+List of locked IPs:
+ZYNQ_SPNLNK_bd_HPU_Core_0_0
+
+open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:08 . Memory (MB): peak = 876.773 ; gain = 181.227
